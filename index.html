@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Links to Leaflet style sheet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+    <!-- Links to Leaflet Javascript Library -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    
+    
+    <title> GEOG 485L/585L -- My First Map    </title>
+</head>
+
+<body>
+    <p>
+        My first map will appear here:
+    </p>
+    <!-- The <script> tag/element allowys you to write Javascript  -->
+
+
+    <!-- To see this in a web page, Ctrl + Shift + I, click Elements-->
+    <div id="mapId" style='height:400px; width:600px'></div>
+
+
+    <script>
+        // Creates the 'mymap' variable at the coords of Northrop Hall at a 17 zoom level
+        // References the mapId element from above (this wouldn't work if I put it above the <div>)
+        var mymap = L.map('mapId').setView([35.08312873212693, -106.62284718970167], 17);
+        
+        // Creates osm variable that hold OpenStreetMap tile layer
+        var osm = new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+        
+        // Adds tile layer (osm) to the map
+        osm.addTo(mymap);
+
+        // Adds a marker on the tile layer
+        var marker = L.marker([35.08312873212693, -106.62284718970167]).addTo(mymap);
+    
+        marker.bindPopup("<b>Hello world!</b> <br><i>Northrop Hall</i> <br>University of New Mexico")
+        // <b> - bolds text
+        // <br> - new line
+        // <i> - italics
+
+    </script>
+
+</body>
+</html>
+
